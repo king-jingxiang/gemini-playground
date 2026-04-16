@@ -67,14 +67,13 @@ export const useGeneratorStore = defineStore('generator', () => {
         model: model.value,
         contents: prompt.value,
         config: {
+          responseModalities: ['IMAGE'],
           imageConfig: {
             aspectRatio: aspectRatio.value,
             imageSize: resolution.value
-          },
-          responseModalities: ['IMAGE']
-        },
-        
-      } as any)
+          }
+        }
+      })
       
       if (response.candidates && response.candidates.length > 0) {
         const candidate = response.candidates[0]
